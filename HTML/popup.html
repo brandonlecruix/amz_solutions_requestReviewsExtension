@@ -1,0 +1,232 @@
+<html><head>
+		<title>TOOL for Amazon Seller Central</title>
+		<style type="text/css">
+					html {
+					    width: fit-content;
+					    height: 318px;
+					}
+					body {
+					    margin: 0px;
+					    position: relative;
+					    overflow: hidden;
+					}
+			/*/////////////////////////////  TOGLE  /////////////////////////////*/
+					.switch {
+					    position: sticky;
+					    display: inline-block;
+					    margin-right: 13px;
+					    width: 38px;
+					    height: 16px;
+					 }
+
+					.switch input { 
+						opacity: 0;
+						width: 0;
+						height: 0;
+					}
+
+					.slider {
+						position: absolute;
+						cursor: pointer;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						background-color: #a9a9a9;
+						-webkit-transition: .4s;
+						transition: .4s;
+					}
+
+					.slider:before {
+						position: absolute;
+						content: "";
+						height: 10px;
+						width: 11px;
+						left: 3px;
+						bottom: 3px;
+						background-color: white;
+						-webkit-transition: .4s;
+						transition: .4s;
+					}
+
+					input:checked + .slider {
+						background-color: #ff9900;
+					    box-shadow: 0px 0px 30px 0px #ff9900;
+					}
+
+					input:focus + .slider {
+						box-shadow: 0 0 1px #2196F3;
+					}
+
+					input:checked + .slider:before {
+						-webkit-transform: translateX(26px);
+						-ms-transform: translateX(26px);
+						transform: translateX(13px);
+					}
+
+					/* Rounded sliders */
+					.slider.round {
+						border-radius: 34px;
+					}
+
+					.slider.round:before {
+					border-radius: 50%;
+					}			
+					.app {
+						display: flex;
+					    align-items: center;
+					    flex-direction: column;
+					    width: 186px;
+					    height: 100%;
+					    overflow: hidden;
+					    background-color: black;
+					}
+					.app_main_container {
+					    margin-top: 28px;
+					    display: flex;
+					    flex-direction: column;
+					    align-items: center;
+					}
+			.option_1, .option_2, .option_3, .option_4, .option_5 {
+			    display: flex;
+			    flex-direction: row;
+			    width: 100%;
+			    justify-content: center;
+			    align-items: center;
+			}
+			.option_1 p, .option_2 p, .option_3 p, .option_4 p, .option_5 p {
+			    display: flex;
+			    flex-direction: row;
+			    width: 100%;
+			    line-height: 0px;
+			    height: 0px;
+			}
+			.logo {
+			    border-radius: 7px;
+			    position: relative;
+			    z-index: 9;
+			    overflow: hidden;
+			}
+			.logo img {
+			    /* background-color: white; */
+			    width: 94px;
+			    position: relative;
+			    filter: drop-shadow(0.2px 4px 3px #ffffff7d);
+			    /* color: #ffffff7d; */
+			    border-radius: 15px;
+			}
+			.app_name {
+			    border: 0.335px solid gray;
+			    background-image: linear-gradient(164deg, #ff9900 15%, #ff760029 85%);
+			    font-weight: bold;
+			    font-family: verdana;
+			    font-size: 14px;
+			    color: white;
+			    position: absolute;
+			    top: -29px;
+			    padding: 144px 6px 14px 6px;
+			    border-radius: 15px;
+			}
+			.app_options {
+			    font-family: sans-serif;
+			    font-size: 12px;
+			    font-weight: bold;
+			    display: flex;
+			    flex-direction: column;
+			    align-items: center;
+			    justify-content: space-between;
+			    width: 167px;
+			    color: white;
+			    margin-left: 14px;
+			}
+			.app_state {
+			    display: flex;
+			    margin: 81px 0px -85px 0px;
+			    flex-direction: row;
+			    justify-content: space-between;
+			    width: 81px;
+			}
+			.app_state p {
+			    color: white;
+			    margin-top: 0px;
+			    font-weight: bold;
+			    font-size: 11.5px;
+			}
+			.turn_on_off_app_toggle {
+			    margin-bottom: 100px;
+			}
+			/*/////////////  ALERT TOAST /////////////*/
+	        @keyframes toast_alert {
+	        	from {
+	                opacity: 1; 
+
+	        	}
+	        	to {
+	                opacity: 0; 
+	        	}
+	        }
+			alert {
+				display: flex;
+				position: absolute;
+				top: 4px;
+				z-index: 999;
+				width: 95%;
+				height: 26px;
+				color: white;
+				font-family: verdana;
+				font-weight: bold;
+				font-size: 10px;
+				justify-content: center;
+				align-items: center;
+				background-color: #ff4646;
+				filter: drop-shadow(2px 4px 6px #ffffff59);
+				border-radius: 3px;
+				opacity: 0;
+			}
+			.deactivated {
+				filter: brightness(0.3);
+			    user-select: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="app">
+					<alert>THIS FEATURE IS UNDER DEVELOPMENT.</alert>
+					<div class="app_main_container">
+						<div class="logo">
+							<img width="182" src="../assets/logo/RENDERED.png">
+						</div>
+						<p class="app_name">AMZ Solutions</p>
+						<div class="app_state">
+							<p>OFF</p>
+							<div class="turn_on_off_app_toggle" style="
+							    margin-bottom: 100px;
+							">
+								<label class="switch">
+								  <input class="APP_STATE_TOGGLE" type="checkbox">
+								  <span class="slider round"></span>
+								</label>
+							</div>
+						</div>
+						<div class="app_options">
+							<div class="option_1">
+								<p>TEST MODE</p> 
+								<label class="switch">
+								  <input class="TEST_MODE_TOGGLE" type="checkbox">
+								  <span class="slider round"></span>
+								</label>
+							</div>
+							<div class="option_2">
+								<p>REQUEST REVIEWS</p> 
+								<label class="switch">
+								  <input class="REQUEST_REVIEWS_TOGGLE" type="checkbox">
+								  <span class="slider round"></span>
+								</label>
+							</div>
+						</div>
+					</div>
+		</div>
+	
+	<script type="text/javascript" src="/js/Notification/Notification.js"></script>
+	<script type="text/javascript" src="/js/popup/popup.js"></script>
+</body></html>

@@ -1,0 +1,71 @@
+{
+  "name"                 : "AMZ Solutions" ,
+  "description"          : "Request reviews Amazon Seller Central" ,
+  "version"              : "1.1.2" ,
+  "manifest_version"     : 2 , 
+  "author"               : "@BrandonLacruz" ,
+  "permissions": 
+       [
+         "https://sellercentral.amazon.com/orders/resolve",
+         "https://sellercentral.amazon.com/orders-v3/*" ,
+
+         "https://sellercentral.amazon.co.uk/orders/resolve",
+         "https://sellercentral.amazon.co.uk/orders-v3/*" ,
+
+         "https://sellercentral.amazon.ca/orders/resolve",
+         "https://sellercentral.amazon.ca/orders-v3/*" ,
+
+         "notifications",
+         "webRequest",
+         "tabs",
+         "storage"
+       ],
+  "icons": 
+       {
+         "16"            : "/assets/icons/16.png" ,
+         "48"            : "/assets/icons/48.png" ,
+         "128"           : "/assets/icons/128.png"
+       },
+ "background": 
+      {
+         "scripts": 
+         [ 
+                         "/JS/background/background.js"
+         ],
+         "persistent"    : true
+      },
+"content_scripts": 
+     [
+         {
+           "matches": 
+                [
+                         "https://sellercentral.amazon.com/orders-v3/*",
+
+                         "https://sellercentral.amazon.co.uk/orders-v3/*",   
+                         
+                         "https://sellercentral.amazon.ca/orders-v3/*"               
+                ],
+           "run_at"      : "document_end",
+           "js": 
+                [
+                         "/JS/content_scripts/TESTS_METHODS/TESTS_METHODS.js" ,
+                         "/JS/content_scripts/set_message.js" ,
+                         "/JS/content_scripts/get_marketPlaceId.js" ,
+                         "/JS/content_scripts/press_all_request_review_btn.js" ,
+                         "/JS/content_scripts/lock_btn.js" ,
+                         "/JS/content_scripts/make_review_request.js" ,
+                         "/JS/content_scripts/add_app_elements.js" ,
+                         "/JS/content_scripts/add_request_review_all_btn.js" ,
+                         "/JS/content_scripts/eval_by_flags.js" 
+                ]
+         }
+     ],
+  "browser_action": 
+       {
+         "default_icon": 
+              {
+                "128"    : "/assets/icons/48.png"
+              },
+         "default_popup" : "/HTML/popup.html"
+       }
+}
